@@ -7,7 +7,6 @@ import pymysql
 from common.parseConfig import ParseConfig
 from common.log import Log
 import json
-from common.handleCase import quchu_n
 
 log = Log()
 
@@ -77,7 +76,7 @@ class ConMysql(object):
                 if isinstance(kwargs[key], dict):
                     kwargs[key] = json.dumps(kwargs[key], ensure_ascii=False)
                 elif isinstance(kwargs[key], str):
-                    kwargs[key]=kwargs[key].replace("\'","\"")
+                    kwargs[key] = kwargs[key].replace("\'", "\"")
                 elif kwargs[key].__eq__(""):
                     continue
                 sql += "{}='{}',".format(key, kwargs[key])
@@ -85,7 +84,7 @@ class ConMysql(object):
         try:
             self.cursor.execute(sql)
             self.conn.commit()
-        except:
+        except Exception as e:
             self.log.error("sql语句错误---->{}".format(sql))
 
     def close(self):

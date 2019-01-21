@@ -20,15 +20,17 @@ class HandleCase(object):
         self.log = Log()
         self.pe = PaserExc(CASEPATH, 0)
 
-
     # 总用例数
     def get_totals(self):
         return self.pe.get_nrows() - 1
 
     # 处理检查点中数据
     def handle_checkPoint(self, item):
+        global key, value
         checkPints = {}
-        key, value = item.split(":")
+        key, value = item.split("=")
+        if ":" in value:
+            value=value.replace(":", "：")
         if "." in key:
             temp = {}
             key1 = (str(key).split("."))[0]  # payload.coin类型的集合点解析
@@ -42,28 +44,19 @@ class HandleCase(object):
     # 处理每条用例的数据格式
     def handle_data(self, datas):
         global cid, describe, host, expect, method, params, checkPints
+        checkPints = {}
         if isinstance(datas, dict):
-            # checkPints = {}
             cid = int(datas["caseId"])
             describe = str(quchu_n(datas["caseDescribe"]))
             host = str(quchu_n(datas["apiHost"]))
             expect = str(datas["expect"])
             method = str(datas["method"])
             params = str(datas["params"])
-            if expect.split(";")[-1] !="":
+            if expect.split(";")[-1] != "":
                 for item in expect.split(";"):
-                    # key, value = item.split(":")
-                    # if "." in key:
-                    #     temp = {}
-                    #     key1 = (str(key).split("."))[0]  # payload.coin类型的集合点解析
-                    #     key2 = (str(key).split("."))[1]
-                    #     temp[key2] = value
-                    #     checkPints[key1] = temp
-                    # else:
-                    #     checkPints[key] = value
-                    checkPints=self.handle_checkPoint(item)
+                    checkPints.update(self.handle_checkPoint(item))
             else:
-                checkPints=self.handle_checkPoint(expect.replace(";", ""))
+                checkPints = self.handle_checkPoint(expect.replace(";", ""))
             datas["expect"] = checkPints
             return datas
         else:
@@ -80,7 +73,7 @@ class HandleCase(object):
                 case["caseDescribe"] = quchu_n(str(row[1]))
                 case["apiHost"] = quchu_n(str(row[2]))
                 case["params"] = quchu_n(row[3])
-                case["apiHeaders"]=quchu_n(row[4])
+                case["apiHeaders"] = quchu_n(row[4])
                 case["method"] = quchu_n(row[5])
                 case["relatedApi"] = quchu_n(row[6])
                 case["relatedParams"] = quchu_n(row[7])
@@ -95,5 +88,5 @@ class HandleCase(object):
 
 
 if __name__ == '__main__':
-    s=HandleCase().get_cases()
+    s = HandleCase().get_cases()
     print(s)

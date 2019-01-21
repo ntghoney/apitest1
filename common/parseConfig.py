@@ -34,9 +34,11 @@ class ParseConfig(object):
     # 根据section读取配置文件信息，返回数据字典
     def get_info(self, section):
         info = {}
-        for i in self.cf.options(section):
-            info[i] = self.cf.get(section, i)
-        return info
+        if section in self.cf.sections():
+            for i in self.cf.options(section):
+                info[i] = self.cf.get(section, i)
+            return info
+        return None
 
     def get_report_info(self):
         return self.cf.options("report")
@@ -76,4 +78,5 @@ class ParseConfig(object):
 
 if __name__ == '__main__':
     pc = ParseConfig()
-    pc.remote_option("headers", "headers")
+    s=pc.get_info("headers")
+    print(s)

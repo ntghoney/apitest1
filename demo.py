@@ -16,16 +16,9 @@ headers={"cookie":"_umdata=G1D9DFFBA554E65A731DFE539C75C23F93ACB10; Hm_lpvt_4847
          "Accept":"application/json"}
 url="http://fp01.ops.gaoshou.me/s5/login.mobile"
 url1="http://fp01.ops.gaoshou.me/s4/dashboard"
-data={"phone":"17711794059"}
-s=requests.get(url1,data="")
-h=str(s.headers).replace("\'","\"")
-print(json.loads(h))
-l=s.headers
-print(l)
-print(l['Server'])
-cf =ConfigParser()
-cf.read(r"e:/project/ApiTest/config/conf.ini")
-print(cf.sections())
+data={"phone":"17711794059","code":"123456"}
+s=requests.post(url,data=data)
+print(s.text)
 # if "headers" not in cf.sections():
 #     cf.add_section("headers")
 # cf.set("headers","headers",h)
@@ -36,4 +29,5 @@ print(cf.sections())
 # with open("e:/project/ApiTest/config/conf.ini","w") as f:
 #     cf.write(f)
 #     f.close()
-print((lambda x:x+1)(3))
+s="：12"
+print("：" in s)

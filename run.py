@@ -12,16 +12,23 @@ from common.log import Log
 from common.report import get_now
 import json
 from common.parseConfig import ParseConfig, setPath
-from configparser import ConfigParser
+
+pc = ParseConfig()
 
 
 def write_headers(headers):
-    pc = ParseConfig()
     pc.wirte_info("headers", "headers", headers)
+
+
+# 从配置文件中获得默认headers
+def get_default_headers():
+    return pc.get_info("headers")
 
 
 # 检查期望与实际是否相匹配
 def check(expect, fact, result):
+    # 默认结果为pass
+    result["ispass"] = "pass"
     # if fact.status_code == 200:
     try:
         response = fact.json()
@@ -29,14 +36,26 @@ def check(expect, fact, result):
         temp = ""
         for key in expect.keys():
             if not isinstance(expect[key], dict):
+                # 判断检查点中的字段是否在响应结果中
+                if key not in response.keys():
+                    result["ispass"] = "fail"
+                    result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
+                    result["reason"] = "实际结果中没有{}这个字段,检查用例是否错误或接口返回结果错误".format(key)
+                    return
+                # 判断检查点中字段的值和返回结果字段的值是否一致
                 if not str(expect[key]).__eq__(str(response[key])):
                     result["ispass"] = "fail"
                     result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
                     temp += "{}的值预期为：{}，实际为：{}\n".format(key, expect[key], response[key])
                     result["reason"] = temp
                 else:
-                    result["ispass"] = "pass"
+                    # 判断是否有检查点判断失败，如果有，ispass值仍然为fail
+                    if result["ispass"].__eq__("fail"):
+                        result["ispass"] = "fail"
+                    else:
+                        result["ispass"] = "pass"
                     result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
+            # 判断双重检查点，例如payload.message的形式
             else:
                 for key1 in expect[key].keys:
                     if str(response[key][key1]).__eq__(str(expect[key][key1])):
@@ -55,12 +74,14 @@ def check(expect, fact, result):
 
 
 def run():
-    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedPamras, headers
+    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedPamras
     '''
     是否为第一条用例，每次执行是获取第一条用例执行的headers信息写入配置文件
     之后接口测试用例中如果headers信息为空，则自动调用配置文件中的headers信息
     '''
+
     is_first_case = True
+    defaultHeaders = get_default_headers()  # 头信息
     # 数据库连接对象
     con = ConMysql()
     # 开始测试之前先清除数据库前一次测试储存的数据
@@ -83,6 +104,12 @@ def run():
         checkPints = case["expect"]
         method = str(case["method"])
         params = str(case["params"])
+        headers = case["apiHeaders"]
+        # 如果用例中headers信息没写，则调用配置文件中的headers信息
+        if headers == "":
+            headers = defaultHeaders
+        else:
+            headers = json.loads(headers, encoding="utf8")
         if params is not "":
             params = json.loads(str(case["params"]), encoding="utf8")
         result["caseId"] = cid
@@ -91,7 +118,7 @@ def run():
         result["except"] = str(checkPints)
 
         if method == "post":
-            fact = Http.post(host, params=params)
+            fact = Http.post(host, params=params, headers=headers)
             result["fact"] = str(fact.text)
             check(checkPints, fact, result)
             # 如果是第一条用例，则将headers信息写入配置文件
@@ -99,7 +126,7 @@ def run():
                 write_headers((lambda s: s.replace("\'", "\""))(str(fact.headers)))
 
         elif method == "get":
-            fact = Http.get(host, params=params)
+            fact = Http.get(host, params=params, headers=headers)
             result["fact"] = str(fact.text)
             check(checkPints, fact, result)
             if is_first_case:
@@ -134,5 +161,5 @@ if __name__ == '__main__':
     # for key in c.keys():
     #
     #     nt(key)
-    s = "是dfdsfds发的规范的施工的双方各地方个的双方各得十分个收到"
+    # s = "是dfdsfds发的规范的施工的双方各地方个的双方各得十分个收到"
     run()
