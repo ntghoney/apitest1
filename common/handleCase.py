@@ -43,10 +43,11 @@ class HandleCase(object):
 
     # 处理每条用例的数据格式
     def handle_data(self, datas):
-        global cid, describe, host, expect, method, params, checkPints
+        global cid, apiId,describe, host, expect, method, params, checkPints
         checkPints = {}
         if isinstance(datas, dict):
             cid = int(datas["caseId"])
+            apiId=int(datas["apiId"])
             describe = str(quchu_n(datas["caseDescribe"]))
             host = str(quchu_n(datas["apiHost"]))
             expect = str(datas["expect"])
@@ -67,17 +68,21 @@ class HandleCase(object):
         cases = []
         rowValues = self.pe.get_row()[1:]
         for row in rowValues:
-            if row[9] == "Y" or row[9] == "y" or row[9] == "":
+            if row[10] == "Y" or row[10] == "y" or row[10] == "":
                 case = {}
                 case["caseId"] = int(row[0])
-                case["caseDescribe"] = quchu_n(str(row[1]))
-                case["apiHost"] = quchu_n(str(row[2]))
-                case["params"] = quchu_n(row[3])
-                case["apiHeaders"] = quchu_n(row[4])
-                case["method"] = quchu_n(row[5])
-                case["relatedApi"] = quchu_n(row[6])
-                case["relatedParams"] = quchu_n(row[7])
-                case["expect"] = quchu_n(row[8])
+                case["apiId"]=int(row[1])
+                case["caseDescribe"] = quchu_n(str(row[2]))
+                case["apiHost"] = quchu_n(str(row[3]))
+                case["params"] = quchu_n(row[4])
+                case["apiHeaders"] = quchu_n(row[5])
+                case["method"] = quchu_n(row[6])
+                if isinstance(row[7],float):
+                    case["relatedApi"] = int(row[7])
+                else:
+                    case["relatedApi"] = None
+                case["relatedParams"] = quchu_n(row[8])
+                case["expect"] = quchu_n(row[9])
                 # case["isExecute"] = row[6]
                 case = self.handle_data(case)
                 cases.append(case)

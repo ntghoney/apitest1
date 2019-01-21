@@ -74,12 +74,11 @@ def check(expect, fact, result):
 
 
 def run():
-    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedPamras
+    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedPamras, apiInfo
     '''
     是否为第一条用例，每次执行是获取第一条用例执行的headers信息写入配置文件
     之后接口测试用例中如果headers信息为空，则自动调用配置文件中的headers信息
     '''
-
     is_first_case = True
     defaultHeaders = get_default_headers()  # 头信息
     # 数据库连接对象
@@ -94,9 +93,16 @@ def run():
     # 获取所有用例
 
     cases = HandleCase().get_cases()
-    print(cases)
     for case in cases:
-        con.insert_data("testCase", **case)  # 将用例逐条插入数据库暂时保存
+        print(case)
+        # 将用例数据插入数据库testCase表中暂时保存
+        con.insert_data("testCase", **case)
+        # 将接口数据插入数据库apiInfo表中暂时保存
+        apiInfo = {"apiId": int(case["apiId"]), "apiHost": case["apiHost"], "apiParams": case["params"],
+                   "relatedApi": case["relatedApi"], "relatedParams": case["relatedParams"]}
+        # 如果数据库中不存在apiId的接口，则插入
+        if not con.query_all("select * from apiInfo  where apiId={}".format(apiInfo["apiId"])):
+            con.insert_data("apiInfo", **apiInfo)
         result = {}
         cid = case["caseId"]
         describe = str(case["caseDescribe"])

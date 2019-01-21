@@ -30,4 +30,6 @@ print(s.text)
 #     cf.write(f)
 #     f.close()
 s="：12"
+{'caseId': 2, 'apiId': 1, 'caseDescribe': '缺少phone参数', 'apiHost': '/s4/login.mobile', 'params': '{"code":"123456"}', 'apiHeaders': '', 'method': 'post', 'relatedApi': '', 'relatedParams': '', 'expect': {'err_code': '0', 'err_msg': '缺少参数：phon'}}
+
 print("：" in s)

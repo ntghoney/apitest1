@@ -77,6 +77,8 @@ class ConMysql(object):
                     kwargs[key] = json.dumps(kwargs[key], ensure_ascii=False)
                 elif isinstance(kwargs[key], str):
                     kwargs[key] = kwargs[key].replace("\'", "\"")
+                elif isinstance(kwargs[key], int):
+                    kwargs[key]=kwargs[key]
                 elif kwargs[key].__eq__(""):
                     continue
                 sql += "{}='{}',".format(key, kwargs[key])
