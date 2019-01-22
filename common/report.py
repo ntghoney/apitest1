@@ -78,20 +78,34 @@ class Report(object):
 
     # 逐行写入数据
     def write_line(self, row, resdic):
-        col = 0
-        for value in resdic.values():
-            if col<self.reportNcols-1:
-                self.write(row, col, value,self.col_style())
-            else:
-                self.write(row, col, value, self.col_auto_line_style())
-            col+=1
+        for key in resdic.keys():
+            if key.__eq__("caseId"):
+                self.write(row, 0, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("caseDescribe"):
+                self.write(row, 1, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("apiHost"):
+                self.write(row, 2, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("except"):
+                self.write(row, 3, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("fact"):
+                self.write(row, 4, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("databaseResult"):
+                self.write(row, 5, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("databaseExpect"):
+                self.write(row, 6, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("ispass"):
+                self.write(row, 7, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("time"):
+                self.write(row, 8, resdic[key], self.col_auto_line_style())
+            elif key.__eq__("reason"):
+                self.write(row, 9, resdic[key], self.col_auto_line_style())
 
     def get_report(self, result):
         global row, ncols
         ncols = self.reportNcols
         row = 3  # 从第二行写入用例执行情况
         # 设置测试报告列宽
-        self.set_col_width(ncols, 5000)
+        self.set_col_width(ncols, 6000)
         # 标题内容
         self.write_merge(0, 0, 0, ncols - 1, self.reportTitle, self.title_style())
         # 写入描述测试语句

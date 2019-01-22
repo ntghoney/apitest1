@@ -6,6 +6,8 @@
 from common.parseExc import *
 from common.config import CASEPATH
 from common.log import Log
+from common.config import CASENAME
+import json
 
 
 # 去掉换行符
@@ -30,7 +32,7 @@ class HandleCase(object):
         checkPints = {}
         key, value = item.split("=")
         if ":" in value:
-            value=value.replace(":", "：")
+            value = value.replace(":", "：")
         if "." in key:
             temp = {}
             key1 = (str(key).split("."))[0]  # payload.coin类型的集合点解析
@@ -43,11 +45,11 @@ class HandleCase(object):
 
     # 处理每条用例的数据格式
     def handle_data(self, datas):
-        global cid, apiId,describe, host, expect, method, params, checkPints
+        global cid, apiId, describe, host, expect, method, params, checkPints
         checkPints = {}
         if isinstance(datas, dict):
             cid = int(datas["caseId"])
-            apiId=int(datas["apiId"])
+            apiId = int(datas["apiId"])
             describe = str(quchu_n(datas["caseDescribe"]))
             host = str(quchu_n(datas["apiHost"]))
             expect = str(datas["expect"])
@@ -68,33 +70,40 @@ class HandleCase(object):
 
     # 获得所有测试用例
     def get_cases(self):
+        values = []
         cases = []
+        result=[]
         rowValues = self.pe.get_row()[1:]
         for row in rowValues:
-            if row[10] == "Y" or row[10] == "y" or row[10] == "":
-                case = {}
-                case["caseId"] = int(row[0])
-                case["apiId"]=int(row[1])
-                case["caseDescribe"] = quchu_n(str(row[2]))
-                case["apiHost"] = quchu_n(str(row[3]))
-                case["params"] = quchu_n(row[4])
-                case["apiHeaders"] = quchu_n(row[5])
-                case["method"] = quchu_n(row[6])
-                if isinstance(row[7],float):
-                    case["relatedApi"] = int(row[7])
-                else:
-                    case["relatedApi"] = None
-                case["relatedParams"] = quchu_n(row[8])
-                case["expect"] = quchu_n(row[9])
-                # case["isExecute"] = row[6]
-                case = self.handle_data(case)
+            values.append(dict(zip(CASENAME, row)))
+        # 去掉不执行的用例
+        for case in values:
+            if case["isExcute"] == "y" or case["isExcute"] == "Y" or case["isExcute"] == "":
                 cases.append(case)
+            case.pop("isExcute")
+        #转换用例字段的数据格式
+        for case in cases:
+            case["caseId"] = int(case["caseId"])
+            case["apiId"] = int(case["apiId"])
+            case["caseDescribe"] = quchu_n(str(case["caseDescribe"]))
+            case["apiHost"] = quchu_n(str(case["apiHost"]))
+            case["params"] = quchu_n(case["params"])
+            case["apiHeaders"] = quchu_n(case["apiHeaders"])
+            case["method"] = quchu_n(case["method"])
+            if isinstance(case["relatedApi"], float):
+                case["relatedApi"] = int(case["relatedApi"])
             else:
-                continue
-        self.log.info("获取用例完毕，共获取用例{}条".format(len(cases)))
-        return cases
+                case["relatedApi"] = None
+            case["relatedParams"] = quchu_n(case["relatedParams"])
+            case["expect"] = quchu_n(case["expect"])
+            self.handle_data(case)
+            result.append(case)
+        return result
+
+
 
 
 if __name__ == '__main__':
     s = HandleCase().get_cases()
-    print(s)
+    for i in s:
+        print(i)

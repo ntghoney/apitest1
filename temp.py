@@ -26,3 +26,14 @@
         #     result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
         # else:
         #     # temp=con.query_one("select * from apiInfo where apiId={}".format(relatedApi))
+
+
+s="sabcabcabcr"
+s1="#{aaa}"
+import re
+r=re.compile(r"^s(.*?)r$")
+r1=re.compile(r"^#{(.*?)}$")
+a=re.findall(r1,s1)
+print(a)
+
+
