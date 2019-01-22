@@ -22,7 +22,7 @@ def write_headers(headers):
 
 # 从配置文件中获得默认headers
 def get_default_headers():
-    headers= {"cookie": pc.get_info("headers")["headers"]}
+    headers = {"cookie": pc.get_info("headers")["headers"]}
     return headers
 
 
@@ -35,10 +35,10 @@ def check(expect, fact, result):
         response = fact.json()
         # 循环检查点与响应结果是否匹配
         temp = ""
-        if not expect :
+        if not expect:
             result["ispass"] = "block"
             result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
-            result["reason"]="检查点未设置"
+            result["reason"] = "检查点未设置"
             return
         for key in expect.keys():
             if not isinstance(expect[key], dict):
@@ -80,18 +80,20 @@ def check(expect, fact, result):
 
 
 def run():
-    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedParams, apiInfo
+    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedParams, apiInfo,apiHeaders1
     '''
     是否为第一条用例，每次执行是获取第一条用例执行的headers信息写入配置文件
     之后接口测试用例中如果headers信息为空，则自动调用配置文件中的headers信息
     '''
     is_first_case = True
     defaultHeaders = get_default_headers()  # 头信息
+    apiHeaders1=get_default_headers()
     # 数据库连接对象
     con = ConMysql()
     # 开始测试之前先清除数据库前一次测试储存的数据
     con.truncate_data("testCase")
     con.truncate_data("testResult")
+    con.truncate_data("apiInfo")
     # 测试结果集
     resultSet = []
     log = Log()
@@ -100,12 +102,12 @@ def run():
 
     cases = HandleCase().get_cases()
     for case in cases:
-        relatedApi= case["relatedApi"]
-        relatedParams=case["relatedParams"]
+        relatedApi = case["relatedApi"]
+        relatedParams = case["relatedParams"]
         # 将用例数据插入数据库testCase表中暂时保存
         con.insert_data("testCase", **case)
         # 将接口数据插入数据库apiInfo表中暂时保存
-        apiInfo = {"apiId": int(case["apiId"]), "apiHost": case["apiHost"], "apiParams": case["params"],
+        apiInfo = {"apiId": int(case["apiId"]), "apiHost": case["apiHost"], "apiParams": case["params"],"method":case["method"],
                    "relatedApi": relatedApi, "relatedParams": relatedParams}
         # 如果数据库中不存在apiId的接口，则插入
         if not con.query_all("select * from apiInfo  where apiId={}".format(apiInfo["apiId"])):
@@ -128,31 +130,55 @@ def run():
         result["caseId"] = cid
         result["caseDescribe"] = describe
         result["apiHost"] = host
-        if  checkPints:
+        if checkPints:
             result["except"] = str(checkPints)
         else:
-            result["except"]=""
+            result["except"] = ""
 
-        if method == "post":
-            fact = Http.post(host, params=params, headers=headers)
-            result["fact"] = str(fact.text)
-            check(checkPints, fact, result)
-            # 如果是第一条用例，则将headers信息写入配置文件
-            if is_first_case:
-                write_headers((str(fact.headers["Set-Cookie"])))
-        elif method == "get":
-            fact = Http.get(host, params=params, headers=headers)
-            result["fact"] = str(fact.text)
-            check(checkPints, fact, result)
-            if is_first_case:
-                write_headers((lambda s: s.replace("\'", "\""))(str(fact.headers)))
-        else:
-            result["fact"] = "用例请求方法错误"
-            result["ispass"] = "fail"
+        if relatedApi is None:
+            if method == "post":
+                fact = Http.post(host, params=params, headers=headers)
+                result["fact"] = str(fact.text)
+                check(checkPints, fact, result)
+                # 如果是第一条用例，则将headers信息写入配置文件
+                if is_first_case:
+                    write_headers((str(fact.headers["Set-Cookie"])))
+            elif method == "get":
+                fact = Http.get(host, params=params, headers=headers)
+                result["fact"] = str(fact.text)
+                check(checkPints, fact, result)
+                if is_first_case:
+                    write_headers((lambda s: s.replace("\'", "\""))(str(fact.headers)))
+            else:
+                result["fact"] = "用例请求方法错误"
+                result["ispass"] = "fail"
+                result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
+                result["reason"] = "用例错误，无法执行，没有{}请求方法".format(method)
+                log.error("没有{}这种请求方式,请修改用例".format(method))
             result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
-            result["reason"] = "用例错误，无法执行，没有{}请求方法".format(method)
-            log.error("没有{}这种请求方式,请修改用例".format(method))
-        result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
+        else:
+            # temp=con.query_one("select * from apiInfo where apiId={}".format(relatedApi))
+            while True:
+                relatedApiInfo=con.query_one("select * from apiInfo where apiId={}".format(relatedApi))
+                print(relatedApiInfo)
+                relatedParams1=relatedApiInfo["relatedParams"]
+                apiHost=relatedApiInfo["apiHost"]
+                relatedApi = relatedApiInfo["relatedApi"]
+                apiParams=relatedApiInfo["apiParams"]
+                apiMethod=relatedApiInfo["method"]
+                # apiHeaders=relatedApiInfo["apiHeaders"]
+                if apiParams is not "":
+                    apiParams = json.loads(str(apiParams), encoding="utf8")
+                if apiMethod == "post":
+                    s=Http.post(apiHost,params=apiParams,headers=apiHeaders1)
+                    if relatedParams.__eq__("headers"):
+                        apiHeaders1 = {"cookie": str(s.headers["Set-Cookie"])}
+                        print(s.text)
+                else:
+                    s = Http.get(apiHost, params=apiParams)
+                    if relatedParams.__eq__("headers"):
+                        apiHeaders1 = {"cookie": str(s.headers["Set-Cookie"])}
+
         # 将执行结果写入数据库临时保存
 
         con.insert_data("testResult", **result)

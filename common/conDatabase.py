@@ -41,7 +41,7 @@ class ConMysql(object):
     def __init__(self):
         mysqlInfo = get_base_info()
         self.conn = pymysql.connect(**mysqlInfo)
-        self.cursor = self.conn.cursor()
+        self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
         self.log = Log()
 
     # 删除表中所有数据
@@ -97,13 +97,16 @@ class ConMysql(object):
 if __name__ == '__main__':
     from common.handleCase import HandleCase
 
-    cases = HandleCase().get_cases()[0]
-    print(cases)
+    # cases = HandleCase().get_cases()[0]
     con = ConMysql()
-    s = con.insert_data("testCase", **cases)
-    print(s)
-    res = con.query_all("select * from testCase")
+    # s = con.insert_data("testCase", **cases)
+
+
+    res1 = con.query_all("select *  from apiInfo where apiId=1")
+    res = con.query_all("select apiId from apiInfo where apiId=1")
     print(res)
+    print(res1)
+
     # s={'caseId': 3, 'caseDescribe': '测试', 'apiHost': '/s5/login.mobile', 'params': '{"phone":"17711794059","code":"123456"}', 'method': 'post', 'relateApi': '', 'relateParams': '', 'expect': {'err_msg': '您的手机号'}}
     # for key in s.keys():
     #     print(type(s[key]))
