@@ -6,7 +6,7 @@
 import os,platform
 
 # 测试环境域名
-TESTDEV = "http://fp01.ops.gaoshou.me"
+TESTDEV = "http://fp02.ops.gaoshou.me"
 # TESTDEV = "http://www.baidu.com"
 
 if platform.system()=="Windows":

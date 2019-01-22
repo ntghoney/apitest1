@@ -22,7 +22,8 @@ def write_headers(headers):
 
 # 从配置文件中获得默认headers
 def get_default_headers():
-    return pc.get_info("headers")
+    headers= {"cookie": pc.get_info("headers")["headers"]}
+    return headers
 
 
 # 检查期望与实际是否相匹配
@@ -34,6 +35,11 @@ def check(expect, fact, result):
         response = fact.json()
         # 循环检查点与响应结果是否匹配
         temp = ""
+        if not expect :
+            result["ispass"] = "block"
+            result["time"] = get_now().strftime("%Y/%m/%d %H:%M:%S")
+            result["reason"]="检查点未设置"
+            return
         for key in expect.keys():
             if not isinstance(expect[key], dict):
                 # 判断检查点中的字段是否在响应结果中
@@ -74,7 +80,7 @@ def check(expect, fact, result):
 
 
 def run():
-    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedPamras, apiInfo
+    global cid, describe, host, method, params, checkPints, con, relatedApi, relatedParams, apiInfo
     '''
     是否为第一条用例，每次执行是获取第一条用例执行的headers信息写入配置文件
     之后接口测试用例中如果headers信息为空，则自动调用配置文件中的headers信息
@@ -94,12 +100,13 @@ def run():
 
     cases = HandleCase().get_cases()
     for case in cases:
-        print(case)
+        relatedApi= case["relatedApi"]
+        relatedParams=case["relatedParams"]
         # 将用例数据插入数据库testCase表中暂时保存
         con.insert_data("testCase", **case)
         # 将接口数据插入数据库apiInfo表中暂时保存
         apiInfo = {"apiId": int(case["apiId"]), "apiHost": case["apiHost"], "apiParams": case["params"],
-                   "relatedApi": case["relatedApi"], "relatedParams": case["relatedParams"]}
+                   "relatedApi": relatedApi, "relatedParams": relatedParams}
         # 如果数据库中不存在apiId的接口，则插入
         if not con.query_all("select * from apiInfo  where apiId={}".format(apiInfo["apiId"])):
             con.insert_data("apiInfo", **apiInfo)
@@ -121,7 +128,10 @@ def run():
         result["caseId"] = cid
         result["caseDescribe"] = describe
         result["apiHost"] = host
-        result["except"] = str(checkPints)
+        if  checkPints:
+            result["except"] = str(checkPints)
+        else:
+            result["except"]=""
 
         if method == "post":
             fact = Http.post(host, params=params, headers=headers)
@@ -129,8 +139,7 @@ def run():
             check(checkPints, fact, result)
             # 如果是第一条用例，则将headers信息写入配置文件
             if is_first_case:
-                write_headers((lambda s: s.replace("\'", "\""))(str(fact.headers)))
-
+                write_headers((str(fact.headers["Set-Cookie"])))
         elif method == "get":
             fact = Http.get(host, params=params, headers=headers)
             result["fact"] = str(fact.text)

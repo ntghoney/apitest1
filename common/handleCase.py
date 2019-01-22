@@ -53,6 +53,9 @@ class HandleCase(object):
             expect = str(datas["expect"])
             method = str(datas["method"])
             params = str(datas["params"])
+            if expect.__eq__(""):
+                datas["expect"] = {}
+                return datas
             if expect.split(";")[-1] != "":
                 for item in expect.split(";"):
                     checkPints.update(self.handle_checkPoint(item))
