@@ -11,12 +11,11 @@ import json
 log = Log()
 
 
-def get_base_info():
-    mysqlInfo = ParseConfig().get_info("database")
-    for key in mysqlInfo.keys():
+def get_base_info(database_info):
+    for key in database_info.keys():
         if key.__eq__("port"):
-            mysqlInfo[key] = int(mysqlInfo[key])
-    return mysqlInfo
+            database_info[key] = int(database_info[key])
+    return database_info
 
 
 # 将数据转换成字典形式储存
@@ -37,10 +36,13 @@ def data_for_dict(data):
         return None
 
 
+database_info = ParseConfig().get_info("MyDatabase")
+mysqlInfo = get_base_info(database_info)
+
+
 class ConMysql(object):
-    def __init__(self):
-        mysqlInfo = get_base_info()
-        self.conn = pymysql.connect(**mysqlInfo)
+    def __init__(self, sqlInfo=mysqlInfo):
+        self.conn = pymysql.connect(**sqlInfo)
         self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
         self.log = Log()
 
@@ -78,7 +80,7 @@ class ConMysql(object):
                 elif isinstance(kwargs[key], str):
                     kwargs[key] = kwargs[key].replace("\'", "\"")
                 elif isinstance(kwargs[key], int):
-                    kwargs[key]=kwargs[key]
+                    kwargs[key] = kwargs[key]
                 elif kwargs[key].__eq__(""):
                     continue
                 sql += "{}='{}',".format(key, kwargs[key])
@@ -100,13 +102,9 @@ if __name__ == '__main__':
     # cases = HandleCase().get_cases()[0]
     con = ConMysql()
     # s = con.insert_data("testCase", **cases)
-
-
-    res1 = con.query_all("select *  from apiInfo where apiId=1")
-    res = con.query_all("select apiId from apiInfo where apiId=1")
-    print(res)
-    print(res1)
-
-    # s={'caseId': 3, 'caseDescribe': '测试', 'apiHost': '/s5/login.mobile', 'params': '{"phone":"17711794059","code":"123456"}', 'method': 'post', 'relateApi': '', 'relateParams': '', 'expect': {'err_msg': '您的手机号'}}
-    # for key in s.keys():
-    #     print(type(s[key]))
+    s = con.query_all("SELECT caseId FROM testresult")
+    if s is None:
+        s=0
+    else:
+        s=len(s)
+    print(s)

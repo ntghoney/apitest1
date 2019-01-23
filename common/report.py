@@ -13,6 +13,7 @@ from common.parseConfig import ParseConfig
 class Report(object):
     def __init__(self):
         self.log = Log()
+        self.__result_info = None
         reportInfo = ParseConfig().get_info("report")
         self.reportNcols = int(reportInfo["ncols"])  # 总列数
         self.reportTitle = reportInfo["title"]  # 报告标题
@@ -28,8 +29,15 @@ class Report(object):
         for i in range(ncols):
             self.table.col(i).width = width
 
-    # 设置居中
+    # 设置垂直居中
     def set_center(self):
+        alignment = xlwt.Alignment()  # 设置居中
+        # alignment.horz = xlwt.Alignment.HORZ_CENTER
+        alignment.vert = xlwt.Alignment.VERT_CENTER
+        return alignment
+
+    # 设置垂直水平居中
+    def set_all_center(self):
         alignment = xlwt.Alignment()  # 设置居中
         alignment.horz = xlwt.Alignment.HORZ_CENTER
         alignment.vert = xlwt.Alignment.VERT_CENTER
@@ -44,7 +52,7 @@ class Report(object):
     # 标题样式
     def title_style(self):
         style = xlwt.easyxf('pattern: pattern solid, fore_colour 0x16;')  # 设置背景颜色为灰色
-        style.alignment = self.set_center()
+        style.alignment = self.set_all_center()
         style.font.height = 800
         style.font.bold = True  # 设置加粗
         return style
@@ -56,18 +64,34 @@ class Report(object):
         style.alignment = self.set_center()
         return style
 
-    #自动换行样式
+    # 自动换行样式
     def col_auto_line_style(self):
-        style=XFStyle()
+        style = XFStyle()
+        style.font.height = 250
+        style.alignment = self.set_center()
+        return style
+
+    # 自动换行，垂直居中
+    def style1(self):
+        style = XFStyle()
+        style.font.height = 250
         style.alignment = self.auto_line()
-        style.font.height = 200
+        style.alignment.vert = xlwt.Alignment.VERT_CENTER
+        return style
+
+    def result_info_style(self):
+        style = XFStyle()
+        font = xlwt.Font()
+        font.name = "宋体"
+        font.height = 500
+        style.font = font
         return style
 
     # 普通单元个样式
     def col_style(self):
         style = XFStyle()
-        # style.alignment = self.set_center()
-        style.font.height = 200
+        style.alignment = self.set_center()
+        style.font.height = 250
         return style
 
     def write(self, row, col, msg="", style=Style.default_style):
@@ -76,29 +100,32 @@ class Report(object):
     def write_merge(self, r1, r2, c1, c2, msg="", style=Style.default_style):
         self.table.write_merge(r1, r2, c1, c2, msg, style)
 
+    def set_result_info(self, result_info):
+        self.__result_info = result_info
+
     # 逐行写入数据
     def write_line(self, row, resdic):
         for key in resdic.keys():
             if key.__eq__("caseId"):
-                self.write(row, 0, resdic[key], self.col_auto_line_style())
+                self.write(row, 0, resdic[key], self.style1())
             elif key.__eq__("caseDescribe"):
-                self.write(row, 1, resdic[key], self.col_auto_line_style())
+                self.write(row, 1, resdic[key], self.style1())
             elif key.__eq__("apiHost"):
-                self.write(row, 2, resdic[key], self.col_auto_line_style())
+                self.write(row, 2, resdic[key], self.style1())
             elif key.__eq__("except"):
-                self.write(row, 3, resdic[key], self.col_auto_line_style())
+                self.write(row, 3, resdic[key], self.style1())
             elif key.__eq__("fact"):
-                self.write(row, 4, resdic[key], self.col_auto_line_style())
+                self.write(row, 4, resdic[key], self.col_style())
             elif key.__eq__("databaseResult"):
-                self.write(row, 5, resdic[key], self.col_auto_line_style())
+                self.write(row, 5, resdic[key], self.col_style())
             elif key.__eq__("databaseExpect"):
-                self.write(row, 6, resdic[key], self.col_auto_line_style())
+                self.write(row, 6, resdic[key], self.col_style())
             elif key.__eq__("ispass"):
-                self.write(row, 7, resdic[key], self.col_auto_line_style())
+                self.write(row, 7, resdic[key], self.col_style())
             elif key.__eq__("time"):
-                self.write(row, 8, resdic[key], self.col_auto_line_style())
+                self.write(row, 8, resdic[key], self.style1())
             elif key.__eq__("reason"):
-                self.write(row, 9, resdic[key], self.col_auto_line_style())
+                self.write(row, 9, resdic[key], self.style1())
 
     def get_report(self, result):
         global row, ncols
@@ -108,11 +135,11 @@ class Report(object):
         self.set_col_width(ncols, 6000)
         # 标题内容
         self.write_merge(0, 0, 0, ncols - 1, self.reportTitle, self.title_style())
-        # 写入描述测试语句
-        description = "本次测试从{}开始，{}结束，执行测试耗时{}s,共执行用例{}个,其中pass:{}个，fail：{}个"
         # 写入列名，逐列写入
         for col in range(self.reportNcols):
-            self.write(2, col, self.reportColName[col],self.col_name_style())
+            self.write(2, col, self.reportColName[col], self.col_name_style())
+        # 写入用例执行统计情况
+        self.write_merge(1, 1, 0, ncols - 1, self.__result_info, self.result_info_style())
         # 写如用例执行情况
         self.log.info("正在写入用例执行情况")
         for res in result:

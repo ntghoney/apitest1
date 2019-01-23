@@ -27,13 +27,24 @@
         # else:
         #     # temp=con.query_one("select * from apiInfo where apiId={}".format(relatedApi))
 
+import string
+import json
 
-s="sabcabcabcr"
-s1="#{aaa}"
-import re
-r=re.compile(r"^s(.*?)r$")
-r1=re.compile(r"^#{(.*?)}$")
-a=re.findall(r1,s1)
-print(a)
+# s=string.Template("$name is $age")
+# name="zs"
+# age=10
+# s=s.substitute(vars())
+# print(s)
+s=string.Template("{'a':'$a'}")
+# for i in range(100):
+#   cmd = "t{}={}".format(i,i)
+#   # exec(cmd)
+#   eval("t{}".format(i))
+# print(t12)
+va=locals()
+g=["a"]
+va[g[0]]="4ss"
+s=s.substitute(vars())
 
-
+print(type(s))
+print(s)

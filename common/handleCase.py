@@ -43,10 +43,27 @@ class HandleCase(object):
             checkPints[key] = value
         return checkPints
 
+    def handle_related_params(self, item):
+        global key, value
+        related_params = {}
+        key, value = item.split("=")
+        if ":" in value:
+            value = value.replace(":", "：")
+        if "." in key:
+            temp = {}
+            key1 = (str(key).split("."))[0]  # payload.coin类型的集合点解析
+            key2 = (str(key).split("."))[1]
+            temp[key2] = value
+            related_params[key1] = temp
+        else:
+            related_params[key] = value
+        return related_params
+
     # 处理每条用例的数据格式
     def handle_data(self, datas):
-        global cid, apiId, describe, host, expect, method, params, checkPints
+        global cid, apiId, describe, host, expect, method, params, checkPints, relatedApi, relatedParams
         checkPints = {}
+        # relatedParamsInfo = {}
         if isinstance(datas, dict):
             cid = int(datas["caseId"])
             apiId = int(datas["apiId"])
@@ -55,15 +72,25 @@ class HandleCase(object):
             expect = str(datas["expect"])
             method = str(datas["method"])
             params = str(datas["params"])
-            if expect.__eq__(""):
-                datas["expect"] = {}
-                return datas
-            if expect.split(";")[-1] != "":
-                for item in expect.split(";"):
-                    checkPints.update(self.handle_checkPoint(item))
+            relatedParams = str(datas["relatedParams"])
+            # if relatedParams:
+            #     if relatedParams.split(";")[-1] != "":
+            #         for item in relatedParams.split(";"):
+            #             relatedParamsInfo.update(self.handle_related_params(item))
+            #     else:
+            #         relatedParamsInfo = self.handle_related_params(relatedParams.replace(";", ""))
+            #     datas["relatedParams"] = relatedParamsInfo
+            # else:
+            #     datas["relatedParams"] = {}
+            if expect:
+                if expect.split(";")[-1] != "":
+                    for item in expect.split(";"):
+                        checkPints.update(self.handle_checkPoint(item))
+                else:
+                    checkPints = self.handle_checkPoint(expect.replace(";", ""))
+                datas["expect"] = checkPints
             else:
-                checkPints = self.handle_checkPoint(expect.replace(";", ""))
-            datas["expect"] = checkPints
+                datas["expect"] = {}
             return datas
         else:
             raise Exception("参数错误，所传参数datas必须是字典")
@@ -72,7 +99,7 @@ class HandleCase(object):
     def get_cases(self):
         values = []
         cases = []
-        result=[]
+        result = []
         rowValues = self.pe.get_row()[1:]
         for row in rowValues:
             values.append(dict(zip(CASENAME, row)))
@@ -81,7 +108,7 @@ class HandleCase(object):
             if case["isExcute"] == "y" or case["isExcute"] == "Y" or case["isExcute"] == "":
                 cases.append(case)
             case.pop("isExcute")
-        #转换用例字段的数据格式
+        # 转换用例字段的数据格式
         for case in cases:
             case["caseId"] = int(case["caseId"])
             case["apiId"] = int(case["apiId"])
@@ -99,8 +126,6 @@ class HandleCase(object):
             self.handle_data(case)
             result.append(case)
         return result
-
-
 
 
 if __name__ == '__main__':
