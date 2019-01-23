@@ -73,15 +73,6 @@ class HandleCase(object):
             method = str(datas["method"])
             params = str(datas["params"])
             relatedParams = str(datas["relatedParams"])
-            # if relatedParams:
-            #     if relatedParams.split(";")[-1] != "":
-            #         for item in relatedParams.split(";"):
-            #             relatedParamsInfo.update(self.handle_related_params(item))
-            #     else:
-            #         relatedParamsInfo = self.handle_related_params(relatedParams.replace(";", ""))
-            #     datas["relatedParams"] = relatedParamsInfo
-            # else:
-            #     datas["relatedParams"] = {}
             if expect:
                 if expect.split(";")[-1] != "":
                     for item in expect.split(";"):

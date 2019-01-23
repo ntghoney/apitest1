@@ -113,19 +113,22 @@ class Report(object):
             elif key.__eq__("apiHost"):
                 self.write(row, 2, resdic[key], self.style1())
             elif key.__eq__("except"):
+                self.write(row, 4, resdic[key], self.style1())
+            elif key.__eq__("apiParams"):
                 self.write(row, 3, resdic[key], self.style1())
             elif key.__eq__("fact"):
-                self.write(row, 4, resdic[key], self.col_style())
-            elif key.__eq__("databaseResult"):
                 self.write(row, 5, resdic[key], self.col_style())
-            elif key.__eq__("databaseExpect"):
+            elif key.__eq__("databaseResult"):
                 self.write(row, 6, resdic[key], self.col_style())
-            elif key.__eq__("ispass"):
+            elif key.__eq__("databaseExpect"):
                 self.write(row, 7, resdic[key], self.col_style())
+            elif key.__eq__("ispass"):
+                self.write(row, 8, resdic[key], self.col_style())
             elif key.__eq__("time"):
-                self.write(row, 8, resdic[key], self.style1())
-            elif key.__eq__("reason"):
                 self.write(row, 9, resdic[key], self.style1())
+            elif key.__eq__("reason"):
+                self.write(row, 10, resdic[key], self.style1())
+
 
     def get_report(self, result):
         global row, ncols

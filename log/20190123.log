@@ -2315,3 +2315,467 @@
 2019-01-23 16:59:43,928 - INFO - 正在写入用例执行情况
 2019-01-23 16:59:43,928 - INFO - 正在写入用例执行情况
 2019-01-23 16:59:43,928 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:25,141 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:25,141 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:25,141 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:25,141 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:25,141 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:25,141 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:25,391 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:25',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:25,391 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:25',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:25,391 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:25',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:25,391 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:25',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:25,391 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:25',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:25,391 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:25',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:25,506 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:25',reason='检查点未设置'
+2019-01-23 17:06:25,506 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:25',reason='检查点未设置'
+2019-01-23 17:06:25,506 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:25',reason='检查点未设置'
+2019-01-23 17:06:25,506 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:25',reason='检查点未设置'
+2019-01-23 17:06:25,506 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:25',reason='检查点未设置'
+2019-01-23 17:06:25,506 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:25',reason='检查点未设置'
+2019-01-23 17:06:25,509 - INFO - 本次测试执行完毕，共耗时0.39秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:25,509 - INFO - 本次测试执行完毕，共耗时0.39秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:25,509 - INFO - 本次测试执行完毕，共耗时0.39秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:25,509 - INFO - 本次测试执行完毕，共耗时0.39秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:25,509 - INFO - 本次测试执行完毕，共耗时0.39秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:25,509 - INFO - 本次测试执行完毕，共耗时0.39秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:25,515 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:25,515 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:25,515 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:25,515 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:25,515 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:25,515 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:25,515 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:30,699 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:30,699 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:30,699 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:30,699 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:30,699 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:30,699 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:06:30,924 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:30',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:30,924 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:30',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:30,924 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:30',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:30,924 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:30',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:30,924 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:30',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:30,924 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:06:30',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:06:31,040 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:31',reason='检查点未设置'
+2019-01-23 17:06:31,040 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:31',reason='检查点未设置'
+2019-01-23 17:06:31,040 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:31',reason='检查点未设置'
+2019-01-23 17:06:31,040 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:31',reason='检查点未设置'
+2019-01-23 17:06:31,040 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:31',reason='检查点未设置'
+2019-01-23 17:06:31,040 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:06:31',reason='检查点未设置'
+2019-01-23 17:06:31,044 - INFO - 本次测试执行完毕，共耗时0.36秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:31,044 - INFO - 本次测试执行完毕，共耗时0.36秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:31,044 - INFO - 本次测试执行完毕，共耗时0.36秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:31,044 - INFO - 本次测试执行完毕，共耗时0.36秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:31,044 - INFO - 本次测试执行完毕，共耗时0.36秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:31,044 - INFO - 本次测试执行完毕，共耗时0.36秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:06:31,053 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:31,053 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:31,053 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:31,053 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:31,053 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:31,053 - INFO - 正在写入用例执行情况
+2019-01-23 17:06:31,053 - INFO - 正在写入用例执行情况
+2019-01-23 17:07:37,026 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:07:37,026 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:07:37,026 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:07:37,026 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:07:37,026 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:07:37,026 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:07:37,311 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:07:37',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:07:37,311 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:07:37',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:07:37,311 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:07:37',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:07:37,311 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:07:37',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:07:37,311 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:07:37',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:07:37,311 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',apiParams='{"phone":"17711794054","code":"$code"}',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:07:37',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:07:37,438 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:07:37',reason='检查点未设置'
+2019-01-23 17:07:37,438 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:07:37',reason='检查点未设置'
+2019-01-23 17:07:37,438 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:07:37',reason='检查点未设置'
+2019-01-23 17:07:37,438 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:07:37',reason='检查点未设置'
+2019-01-23 17:07:37,438 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:07:37',reason='检查点未设置'
+2019-01-23 17:07:37,438 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',apiParams='{"phone":"17711794054","code":"4883"}',databaseExpect=' ',databaseResult=' ',except='',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:07:37',reason='检查点未设置'
+2019-01-23 17:07:37,442 - INFO - 本次测试执行完毕，共耗时0.43秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:07:37,442 - INFO - 本次测试执行完毕，共耗时0.43秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:07:37,442 - INFO - 本次测试执行完毕，共耗时0.43秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:07:37,442 - INFO - 本次测试执行完毕，共耗时0.43秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:07:37,442 - INFO - 本次测试执行完毕，共耗时0.43秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:07:37,442 - INFO - 本次测试执行完毕，共耗时0.43秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:07:37,458 - INFO - 正在写入用例执行情况
+2019-01-23 17:07:37,458 - INFO - 正在写入用例执行情况
+2019-01-23 17:07:37,458 - INFO - 正在写入用例执行情况
+2019-01-23 17:07:37,458 - INFO - 正在写入用例执行情况
+2019-01-23 17:07:37,458 - INFO - 正在写入用例执行情况
+2019-01-23 17:07:37,458 - INFO - 正在写入用例执行情况
+2019-01-23 17:07:37,458 - INFO - 正在写入用例执行情况
+2019-01-23 17:08:48,047 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:08:48,047 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:08:48,047 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:08:48,047 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:08:48,047 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:08:48,047 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:08:48,334 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone": "17711794054", "code": "$code"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:08:48',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:08:48,334 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone": "17711794054", "code": "$code"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:08:48',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:08:48,334 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone": "17711794054", "code": "$code"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:08:48',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:08:48,334 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone": "17711794054", "code": "$code"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:08:48',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:08:48,334 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone": "17711794054", "code": "$code"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:08:48',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:08:48,334 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone": "17711794054", "code": "$code"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:08:48',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:08:48,444 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone": "17711794054", "code": "4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:08:48',reason='检查点未设置'
+2019-01-23 17:08:48,444 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone": "17711794054", "code": "4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:08:48',reason='检查点未设置'
+2019-01-23 17:08:48,444 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone": "17711794054", "code": "4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:08:48',reason='检查点未设置'
+2019-01-23 17:08:48,444 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone": "17711794054", "code": "4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:08:48',reason='检查点未设置'
+2019-01-23 17:08:48,444 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone": "17711794054", "code": "4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:08:48',reason='检查点未设置'
+2019-01-23 17:08:48,444 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone": "17711794054", "code": "4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:08:48',reason='检查点未设置'
+2019-01-23 17:08:48,448 - INFO - 本次测试执行完毕，共耗时0.42秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:08:48,448 - INFO - 本次测试执行完毕，共耗时0.42秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:08:48,448 - INFO - 本次测试执行完毕，共耗时0.42秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:08:48,448 - INFO - 本次测试执行完毕，共耗时0.42秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:08:48,448 - INFO - 本次测试执行完毕，共耗时0.42秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:08:48,448 - INFO - 本次测试执行完毕，共耗时0.42秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:08:48,456 - INFO - 正在写入用例执行情况
+2019-01-23 17:08:48,456 - INFO - 正在写入用例执行情况
+2019-01-23 17:08:48,456 - INFO - 正在写入用例执行情况
+2019-01-23 17:08:48,456 - INFO - 正在写入用例执行情况
+2019-01-23 17:08:48,456 - INFO - 正在写入用例执行情况
+2019-01-23 17:08:48,456 - INFO - 正在写入用例执行情况
+2019-01-23 17:08:48,456 - INFO - 正在写入用例执行情况
+2019-01-23 17:09:08,450 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:09:08,450 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:09:08,450 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:09:08,450 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:09:08,450 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:09:08,450 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:09:08,660 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone":"17711794054","code":"8443"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:09:08',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:09:08,660 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone":"17711794054","code":"8443"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:09:08',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:09:08,660 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone":"17711794054","code":"8443"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:09:08',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:09:08,660 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone":"17711794054","code":"8443"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:09:08',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:09:08,660 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone":"17711794054","code":"8443"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:09:08',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:09:08,660 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='绑定手机',apiHost='/s4/bindMobile',databaseExpect=' ',databaseResult=' ',except='{"a": "4", "b": "5"}',apiParams='{"phone":"17711794054","code":"8443"}',fact='{
+  "err_code": 40101,
+  "err_msg": "未登录",
+  "payload": {}
+}',ispass='fail',time='2019/01/23 17:09:08',reason='实际结果中没有a这个字段,检查用例是否错误或接口返回结果错误'
+2019-01-23 17:09:08,836 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone":"17711794054","code":"4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:09:08',reason='检查点未设置'
+2019-01-23 17:09:08,836 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone":"17711794054","code":"4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:09:08',reason='检查点未设置'
+2019-01-23 17:09:08,836 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone":"17711794054","code":"4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:09:08',reason='检查点未设置'
+2019-01-23 17:09:08,836 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone":"17711794054","code":"4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:09:08',reason='检查点未设置'
+2019-01-23 17:09:08,836 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone":"17711794054","code":"4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:09:08',reason='检查点未设置'
+2019-01-23 17:09:08,836 - INFO - sql语句错误---->INSERT INTO testResult SET caseDescribe='登录',apiHost='/s4/login.mobile',databaseExpect=' ',databaseResult=' ',except='',apiParams='{"phone":"17711794054","code":"4883"}',fact='{
+  "err_code": 40003,
+  "err_msg": "验证码不正确，请重新输入",
+  "payload": {}
+}',ispass='block',time='2019/01/23 17:09:08',reason='检查点未设置'
+2019-01-23 17:09:08,841 - INFO - 本次测试执行完毕，共耗时0.4秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:09:08,841 - INFO - 本次测试执行完毕，共耗时0.4秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:09:08,841 - INFO - 本次测试执行完毕，共耗时0.4秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:09:08,841 - INFO - 本次测试执行完毕，共耗时0.4秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:09:08,841 - INFO - 本次测试执行完毕，共耗时0.4秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:09:08,841 - INFO - 本次测试执行完毕，共耗时0.4秒，共执行用例：0条，成功：0条，失败：0条，阻塞：0条
+2019-01-23 17:09:08,850 - INFO - 正在写入用例执行情况
+2019-01-23 17:09:08,850 - INFO - 正在写入用例执行情况
+2019-01-23 17:09:08,850 - INFO - 正在写入用例执行情况
+2019-01-23 17:09:08,850 - INFO - 正在写入用例执行情况
+2019-01-23 17:09:08,850 - INFO - 正在写入用例执行情况
+2019-01-23 17:09:08,850 - INFO - 正在写入用例执行情况
+2019-01-23 17:09:08,850 - INFO - 正在写入用例执行情况
+2019-01-23 17:12:42,102 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:12:42,102 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:12:42,102 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:12:42,102 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:12:42,102 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:12:42,102 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:12:42,552 - INFO - 本次测试执行完毕，共耗时0.46秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:12:42,552 - INFO - 本次测试执行完毕，共耗时0.46秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:12:42,552 - INFO - 本次测试执行完毕，共耗时0.46秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:12:42,552 - INFO - 本次测试执行完毕，共耗时0.46秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:12:42,552 - INFO - 本次测试执行完毕，共耗时0.46秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:12:42,552 - INFO - 本次测试执行完毕，共耗时0.46秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:12:42,560 - INFO - 正在写入用例执行情况
+2019-01-23 17:12:42,560 - INFO - 正在写入用例执行情况
+2019-01-23 17:12:42,560 - INFO - 正在写入用例执行情况
+2019-01-23 17:12:42,560 - INFO - 正在写入用例执行情况
+2019-01-23 17:12:42,560 - INFO - 正在写入用例执行情况
+2019-01-23 17:12:42,560 - INFO - 正在写入用例执行情况
+2019-01-23 17:12:42,560 - INFO - 正在写入用例执行情况
+2019-01-23 17:14:57,415 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:14:57,415 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:14:57,415 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:14:57,415 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:14:57,415 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:14:57,415 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:22,738 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:22,738 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:22,738 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:22,738 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:22,738 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:22,738 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:35,223 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:35,223 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:35,223 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:35,223 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:35,223 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:35,223 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:15:35,754 - INFO - 本次测试执行完毕，共耗时0.54秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:15:35,754 - INFO - 本次测试执行完毕，共耗时0.54秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:15:35,754 - INFO - 本次测试执行完毕，共耗时0.54秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:15:35,754 - INFO - 本次测试执行完毕，共耗时0.54秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:15:35,754 - INFO - 本次测试执行完毕，共耗时0.54秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:15:35,754 - INFO - 本次测试执行完毕，共耗时0.54秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:15:35,761 - INFO - 正在写入用例执行情况
+2019-01-23 17:15:35,761 - INFO - 正在写入用例执行情况
+2019-01-23 17:15:35,761 - INFO - 正在写入用例执行情况
+2019-01-23 17:15:35,761 - INFO - 正在写入用例执行情况
+2019-01-23 17:15:35,761 - INFO - 正在写入用例执行情况
+2019-01-23 17:15:35,761 - INFO - 正在写入用例执行情况
+2019-01-23 17:15:35,761 - INFO - 正在写入用例执行情况
+2019-01-23 17:17:06,487 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:17:06,487 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:17:06,487 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:17:06,487 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:17:06,487 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:17:06,487 - INFO - 用例路径：E:\project\ApiTest\cases\exmple.xlsx
+2019-01-23 17:17:06,972 - INFO - 本次测试执行完毕，共耗时0.5秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:17:06,972 - INFO - 本次测试执行完毕，共耗时0.5秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:17:06,972 - INFO - 本次测试执行完毕，共耗时0.5秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:17:06,972 - INFO - 本次测试执行完毕，共耗时0.5秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:17:06,972 - INFO - 本次测试执行完毕，共耗时0.5秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:17:06,972 - INFO - 本次测试执行完毕，共耗时0.5秒，共执行用例：2条，成功：0条，失败：1条，阻塞：1条
+2019-01-23 17:17:06,980 - INFO - 正在写入用例执行情况
+2019-01-23 17:17:06,980 - INFO - 正在写入用例执行情况
+2019-01-23 17:17:06,980 - INFO - 正在写入用例执行情况
+2019-01-23 17:17:06,980 - INFO - 正在写入用例执行情况
+2019-01-23 17:17:06,980 - INFO - 正在写入用例执行情况
+2019-01-23 17:17:06,980 - INFO - 正在写入用例执行情况
+2019-01-23 17:17:06,980 - INFO - 正在写入用例执行情况

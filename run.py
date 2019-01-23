@@ -113,9 +113,10 @@ def run():
     log = Log()
     start_time = time.time()
     # 获取所有用例
-
     cases = HandleCase().get_cases()
     for case in cases:
+        # 将用例存入数据库临时保存
+        con.insert_data("testcase", **case)
         # 将接口数据插入数据库apiInfo表中暂时保存
         apiInfo = {"apiId": int(case["apiId"]), "apiHost": case["apiHost"], "apiParams": case["params"],
                    "method": case["method"], "relatedApi": case["relatedApi"], "relatedParams": case["relatedParams"]}
@@ -146,11 +147,6 @@ def run():
                 headers = defaultHeaders
             else:
                 headers = ""
-        # if params:
-        #     params=string.Template(params)
-        #     params=params.substitute(vars())
-        #     params = json.loads(str(case["params"]), encoding="utf8")
-
         if databaseExpect:
             result["databaseExpect"] = databaseExpect
         else:
@@ -173,8 +169,8 @@ def run():
                     if params:
                         params = string.Template(params)
                         params = params.substitute(vars())
+                        result["apiParams"] = params
                         params = json.loads(str(case["params"]), encoding="utf8")
-                    print(params)
                     fact = Http.post(host, params=params, headers=headers)
                     result["fact"] = str(fact.text)
                     check(checkPints, fact, result, databaseExpect=databaseExpect,
@@ -199,16 +195,10 @@ def run():
             if apiParams:
                 apiParams = json.loads(str(apiParams), encoding="utf8")
             if apiMethod == "post":
-                print("zguxu")
                 s = Http.post(apiHost, params=apiParams, headers=headers)
-
-                # if relatedParams.__eq__("headers"):
-                #     headers = {"cookie": str(s.headers["Set-Cookie"])}
                 if relatedParams:
-                    var=locals()
-                    var[relatedParams]="8443"
-
-
+                    var = locals()
+                    var[relatedParams] = "8443"
             else:
                 s = Http.get(apiHost, params=apiParams, headers=headers)
                 if relatedParams.__eq__("headers"):
