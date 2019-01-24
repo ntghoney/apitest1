@@ -129,7 +129,6 @@ class Report(object):
             elif key.__eq__("reason"):
                 self.write(row, 10, resdic[key], self.style1())
 
-
     def get_report(self, result):
         global row, ncols
         ncols = self.reportNcols

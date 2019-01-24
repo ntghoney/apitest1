@@ -14,6 +14,7 @@ import json
 from common.parseConfig import ParseConfig, setPath
 import string
 
+log = Log()
 pc = ParseConfig()
 server_database = get_base_info(pc.get_info("ServerDatabase"))
 con_server = ConMysql(server_database)  # 服务器数据库链接
@@ -28,6 +29,21 @@ def write_headers(headers):
 def get_default_headers():
     headers = {"cookie": pc.get_info("headers")["headers"]}
     return headers
+
+
+# 参数化赋值，参数分别为参数化的参数以及赋值的json字符串
+def parameterize(mparams, mJson):
+    print(mparams, mJson)
+    if mparams and mJson:
+        for i in mparams:
+            if isinstance(i, str):
+                var = locals()
+                var[i] = mJson[i]
+            elif isinstance(i, list):
+                var = locals()
+                var[i[1]] = mJson[i[0]][i[1]]
+            else:
+                log.error("参数错误")
 
 
 # 检查期望与实际是否相匹配
@@ -110,7 +126,6 @@ def run():
     con.truncate_data("apiInfo")
     # 测试结果集
     resultSet = []
-    log = Log()
     start_time = time.time()
     # 获取所有用例
     cases = HandleCase().get_cases()
@@ -176,14 +191,14 @@ def run():
                     check(checkPints, fact, result, databaseExpect=databaseExpect,
                           databaseResult=sqlResult)
                     # 如果调用了creat_user的接口，就将接口的headers信息写入配置文件
-                    if host == "/s5/create_user":
+                    if host == "/s5/create_user" or host == "/s4/login.mobile":
                         write_headers((str(fact.headers["Set-Cookie"])))
                 else:
                     fact = Http.get(host, params=params, headers=headers)
                     result["fact"] = str(fact.text)
                     check(checkPints, fact, result, databaseExpect=databaseExpect,
                           databaseResult=sqlResult)
-                    if host == "/s5/create_user":
+                    if host == "/s5/create_user" or host == "/s4/login.mobile":
                         write_headers((str(fact.headers["Set-Cookie"])))
                 break
             relatedApiInfo = con.query_one("select * from apiInfo where apiId={}".format(relatedApi))
@@ -195,15 +210,39 @@ def run():
             if apiParams:
                 apiParams = json.loads(str(apiParams), encoding="utf8")
             if apiMethod == "post":
-                s = Http.post(apiHost, params=apiParams, headers=headers)
-                if relatedParams:
-                    var = locals()
-                    var[relatedParams] = "8443"
+                resp = Http.post(apiHost, params=apiParams, headers=headers)
+                try:
+                    respJson = resp.json()
+                except:
+                    log.error("接口调用出错{}".format(resp))
+                    respJson = {}
+                if relatedParams and respJson:
+                    for i in relatedParams:
+                        if isinstance(i, str):
+                            var = locals()
+                            var[i] = respJson[i]
+                        elif isinstance(i, list):
+                            var = locals()
+                            var[i[1]] = respJson[i[0]][i[1]]
+                        else:
+                            log.error("参数错误")
             else:
-                s = Http.get(apiHost, params=apiParams, headers=headers)
-                if relatedParams.__eq__("headers"):
-                    headers = {"cookie": str(s.headers["Set-Cookie"])}
-
+                resp = Http.get(apiHost, params=apiParams, headers=headers)
+                try:
+                    respJson = resp.json()
+                except:
+                    log.error("接口调用出错{}".format(resp))
+                    respJson = {}
+                if relatedParams and respJson:
+                    for i in relatedParams:
+                        if isinstance(i, str):
+                            var = locals()
+                            var[i] = respJson[i]
+                        elif isinstance(i, list):
+                            var = locals()
+                            var[i[1]] = respJson[i[0]][i[1]]
+                        else:
+                            log.error("参数错误")
         # 将执行结果写入数据库临时保存
         con.insert_data("testResult", **result)
         resultSet.append(result)

@@ -43,20 +43,19 @@ class HandleCase(object):
             checkPints[key] = value
         return checkPints
 
+    # 处理关联参数
     def handle_related_params(self, item):
-        global key, value
-        related_params = {}
-        key, value = item.split("=")
-        if ":" in value:
-            value = value.replace(":", "：")
-        if "." in key:
-            temp = {}
-            key1 = (str(key).split("."))[0]  # payload.coin类型的集合点解析
-            key2 = (str(key).split("."))[1]
-            temp[key2] = value
-            related_params[key1] = temp
+        related_params = []
+        if ";" in item:
+            for i in item.split(";"):
+                if "." in i:
+                    related_params.append(i.split("."))
+                else:
+                    related_params.append(i)
+        elif "." in item:
+            related_params.append(item.split("."))
         else:
-            related_params[key] = value
+            related_params.append(item)
         return related_params
 
     # 处理每条用例的数据格式
@@ -113,6 +112,7 @@ class HandleCase(object):
             else:
                 case["relatedApi"] = None
             case["relatedParams"] = quchu_n(case["relatedParams"])
+            case["relatedParams"] = self.handle_related_params(case["relatedParams"])
             case["expect"] = quchu_n(case["expect"])
             self.handle_data(case)
             result.append(case)
@@ -120,6 +120,7 @@ class HandleCase(object):
 
 
 if __name__ == '__main__':
-    s = HandleCase().get_cases()
-    for i in s:
-        print(i)
+    a = 'code;c.code'
+    s = HandleCase()
+    j=s.get_cases()[0]
+    l=j["relatedParams"]
